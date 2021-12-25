@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 11</title>
+</head>
+<body>
+
+
+<script>
+    //    Thuế = (Thu nhập - Mốc gần nhất) * Thuế suất tương ứng + Lượng cố định tương ứng
+    //     tax     income       milestone           rate%          + fixedAmount
+
+    //     tax     income       0tr           5%          + 0tr
+    //     tax     income       5tr           10%          + 0.25tr
+    //     tax     income       10tr           15%          + 0.75tr
+    //     tax     income       18tr           20%          + 1.95tr
+    //     tax     income       32tr           25%          + 4.75tr
+    //     tax     income       52tr           30%          + 9.75tr
+    //     tax     income       80tr           35%%          + 18.15tr
+
+    let income = parseFloat(prompt('Thu nhập tính thuế (triệu đồng): '));
+    let tax;
+    let milestones = [
+        {limit: 80, fixedAmount: 18.15, rate: 0.35},
+        {limit: 52, fixedAmount: 9.75, rate: 0.30},
+        {limit: 32, fixedAmount: 4.75, rate: 0.25},
+        {limit: 18, fixedAmount: 1.95, rate: 0.20},
+        {limit: 10, fixedAmount: 0.75, rate: 0.15},
+        {limit: 5, fixedAmount: 0.25, rate: 0.10},
+        {limit: 0, fixedAmount: 0.0, rate: 0.5},
+    ];
+
+    let limit, rate, fixedAmount;
+    for (var milestone of milestones) {
+        if (income > milestone.limit) {
+            limit = milestone.limit;
+            rate = milestone.rate;
+            fixedAmount = milestone.fixedAmount;
+            tax = fixedAmount + (income - limit) * rate;
+            break;
+        }
+    }
+    //
+    alert('Công thức tính thuế:  =' + fixedAmount + ' + (' + income + ' - ' + limit + ') * ' + rate + ' (triệu đồng)');
+    alert('Tiền thuế phải nộp: ' + tax + ' triệu đồng');
+    //
+
+
+    //in ra ket qua dung DOM (test)
+    // let body = document.body;
+    // let incomeDisplay = document.createElement('div');
+    // let formulaDisplay = document.createElement('div');
+    // let taxValueDisplay = document.createElement('div');
+    // body.append(incomeDisplay, formulaDisplay, taxValueDisplay);
+    // incomeDisplay.innerHTML = 'Thu nhập tính thuế: ' + income + ' triệu đồng';
+    // formulaDisplay.innerHTML = 'Công thức tính thuế:  =' + fixedAmount + ' + (' + income + ' - ' + limit + ') * ' + rate + ' (triệu đồng)';
+    // taxValueDisplay.innerHTML = 'Tiền thuế phải nộp: ' + tax + ' triệu đồng';
+
+</script>

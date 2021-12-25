@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai-12</title>
+</head>
+<body>
+Số tiền vay <input type="number" id="loanAmount"><br>
+Số tháng vay <input type="number" id="months"><br>
+Lãi hàng tháng (% - lãi kép) <input type="number" id="rate"><br>
+<input type="button" value="Tính lãi" onclick="calculate()">
+<p id="debt"></p>
+<script>
+
+    function calculate(){
+        let loanAmount = parseFloat(document.getElementById('loanAmount').value);
+        let months = parseInt(document.getElementById('months').value);
+        let rate = parseFloat(document.getElementById('rate').value);
+        let debt = loanAmount * Math.pow(1+rate/100, months);
+
+        document.getElementById('debt').innerHTML = 'Số tiền phải trả: '+ debt;
+
+    }
+
+</script>
+</body>
+</html>

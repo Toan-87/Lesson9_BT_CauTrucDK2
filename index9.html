@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<input type="text"id="canh1" placeholder="Nhập cạnh thứ nhất">
+<input type="text"id="canh2" placeholder="Nhập cạnh thứ hai">
+<input type="text"id="canh3" placeholder="Nhập cạnh thứ ba">
+<br>
+<button onclick="tamgiac()">kiểm tra tam giác</button>
+<p id="kết quả"></p>
+<script>
+    function tamgiac() {
+        let a = parseInt(document.getElementById('canh1').value);
+        let b = parseInt(document.getElementById('canh2').value);
+        let c = parseInt(document.getElementById('canh3').value);
+        if (a+b>c && a+c>b && b+c>a){
+            document.getElementById('kết quả').innerHTML = 'Là 3 cạnh của 1 tam giác';
+        }else {
+            document.getElementById('kết quả').innerHTML =  'không phải Là 3 cạnh của 1 tam giác';
+        }
+    }
+</script>
+</body>
+</html>

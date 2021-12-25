@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải PT bậc 1</title>
+</head>
+<body>
+<h2>Giải phương trình bậc 1</h2>
+<p>Phương trình a.x + b = 0</p>
+a = <input type="number" id="a"><br>
+b = <input type="number" id="b"><br>
+<input type="button" value="Giải" onclick="solve()">
+<p id="result"></p>
+
+<script>
+    function solve() {
+        let a = document.getElementById('a').value;
+        let b = document.getElementById('b').value;
+        let message;
+        let x;
+
+        if (a == 0) {
+            if (b == 0) {
+                message = 'Phương trình có vô số nghiệm';
+                document.getElementById('result').innerText = message;
+            } else {
+                message = 'Phương trình vô nghiệm';
+                document.getElementById('result').innerText = message;
+            }
+        } else{
+            x = b/a;
+            message = 'Phuơng trình có nghiệm là '+x;
+            document.getElementById('result').innerText = message;
+        }
+
+    }
+</script>
+</body>
+</html>

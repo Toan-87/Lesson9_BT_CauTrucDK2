@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Bài 1 - Chuyển độ C sang độ F</h3>
+Độ C <input type="number" id="CDegree"><br>
+Độ F <input type="number" id="FDegree" disabled><br>
+<input type="Button" value="Chuyển" onclick="convertDegree()"><br>
+
+<h3>Bài 2 - Chuyển từ mét sang feet</h3>
+Mét <input type="number" id="metter"><br>
+Feet <input type="number" id="feet" disabled><br>
+<input type="Button" value="Chuyển" onclick="convertLength()"><br>
+
+<h3>Bài 3 - Tính diện tích hình vuông</h3>
+Cạnh a <input type="number" id="squareSide"><br>
+Diện tích <input type="number" id="squareArea" disabled><br>
+<input type="Button" value="Tính" onclick="calculateSquare()"><br>
+
+
+<h3>Bài 4 - Tính diện tích hình chữ nhật</h3>
+Cạnh a <input type="number" id="rectangleSideA"><br>
+Cạnh b <input type="number" id="rectangleSideB"><br>
+Diện tích <input type="number" id="rectangleArea" disabled><br>
+<input type="Button" value="Tính" onclick="calculateRectangle()"><br>
+
+<h3>Bài 5 - Tính diện tích tam giác vuông</h3>
+Cạnh góc vuông a <input type="number" id="triangleSideA"><br>
+Cạnh góc vuông b <input type="number" id="triangleSideB"><br>
+Diện tích <input type="number" id="triangleArea" disabled><br>
+<input type="Button" value="Tính" onclick="calculateTriangle()"><br>
+
+<script>
+    function convertDegree() {
+        let CDegree = parseFloat(document.getElementById('CDegree').value);
+        let FDegree = CDegree * 9 / 5 + 32;
+        document.getElementById('FDegree').value = FDegree;
+    }
+
+    function convertLength() {
+        let metter = parseFloat(document.getElementById('metter').value);
+        let feet = metter * 3.2808;
+        document.getElementById('feet').value = feet;
+    }
+
+    function calculateSquare() {
+        let squareSide = parseFloat(document.getElementById('squareSide').value);
+        let squareArea = squareSide * squareSide;
+        document.getElementById('squareArea').value = squareArea;
+        1
+    }
+
+    function calculateRectangle() {
+        let rectangleSideA = parseFloat(document.getElementById('rectangleSideA').value);
+        let rectangleSideB = parseFloat(document.getElementById('rectangleSideB').value);
+        let rectangleArea = rectangleSideA * rectangleSideB;
+        document.getElementById('rectangleArea').value = rectangleArea;
+    }
+
+    function calculateTriangle() {
+        let triangleSideA = parseFloat(document.getElementById('triangleSideA').value);
+        let triangleSideB = parseFloat(document.getElementById('triangleSideB').value);
+        let triangleArea = triangleSideA * triangleSideB/2;
+        document.getElementById('triangleArea').value = triangleArea;
+    }
+</script>
+
+</body>
+</html>

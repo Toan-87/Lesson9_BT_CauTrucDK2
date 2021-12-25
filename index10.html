@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 10</title>
+</head>
+<body>
+<!--Bài 10: Viết chương trình tính giá điện.-->
+<pre>
+    <a href="https://sunemit.com/gia-ban-le-dien-sinh-hoat-cua-evn-moi-nhat/">Giá bán lẻ điện sinh hoạt</a>
+Bậc 1: Cho kWh từ 0 – 50	1.678
+Bậc 2: Cho kWh từ 51 – 100	1.734
+Bậc 3: Cho kWh từ 101 – 200	2.014
+Bậc 4: Cho kWh từ 201 – 300	2.536
+Bậc 5: Cho kWh từ 301 – 400	2.834
+Bậc 6: Cho kWh từ 401 trở lên	2.927
+</pre>
+<br>
+<p id="message"></p>
+
+
+<script>
+
+
+    let volume = parseFloat(prompt('Nhập vào số điện (kWh):'));
+    let temp = volume;
+    let expressionDisplay = '';
+    if (volume > 400) {
+        expressionDisplay = '50kWh*1678đ + 50kWh*1734đ + 100kWh*2014đ + 100kWh*2536đ + 100kWh*2834đ + ' + (volume - 400) + 'kWh*2927đ ';
+    } else if (volume > 300) {
+        expressionDisplay = '50kWh*1678đ + 50kWh*1734đ + 100kWh*2014đ + 100kWh*2536đ + ' + (volume - 300) + 'kWh*2834đ ';
+    } else if (volume > 200) {
+        expressionDisplay = '50kWh*1678đ + 50kWh*1734đ + 100kWh*2014đ + ' + (volume - 200) + 'kWh*2536đ ';
+    } else if (volume > 100) {
+        expressionDisplay = '50kWh*1678đ + 50kWh*1734đ + ' + (volume - 100) + 'kWh*2014đ ';
+    } else if (volume > 50) {
+        expressionDisplay = '50kWh*1678đ + ' + (volume - 50) + 'kWh*1734đ ';
+    } else {
+        expressionDisplay = '' + volume + 'kWh*1678đ ';
+    }
+
+    let expressionEval = expressionDisplay.replaceAll('kWh', '');
+    expressionEval = expressionEval.replaceAll('đ', '');
+
+    let bill = eval(expressionEval);
+    console.log(volume);
+    console.log(expressionDisplay);
+    console.log(bill);
+    let message = 'Số điện: ' + volume + ' kWh <br>'
+        + 'Tính tiền (đơn vị VN đồng) là: <br>' + expressionDisplay + '<br> Bằng: '
+        + bill + ' VN đồng.';
+    document.getElementById('message').innerHTML = message;
+
+</script>
+
+
+</body>
+</html>

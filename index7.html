@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giải PT bậc 2</title>
+</head>
+<body>
+<h2>Giải phương trình bậc 2</h2>
+<p>Phương trình a.x^2 + b.x + c = 0</p>
+a = <input type="number" id="a"><br>
+b = <input type="number" id="b"><br>
+c = <input type="number" id="c"><br>
+<input type="button" value="Giải" onclick="solve()">
+<p id="result"></p>
+
+<script>
+    function solve() {
+        let a = document.getElementById('a').value;
+        let b = document.getElementById('b').value;
+        let c = document.getElementById('c').value;
+        let message;
+        let x1, x2, delta;
+
+        if (a == 0) {
+            if (b == 0) {
+                if (c == 0) {
+                    message = 'Phương trình có vô số nghiệm';
+                    document.getElementById('result').innerText = message;
+                } else {
+                    message = 'Phương trình vô nghiệm';
+                    document.getElementById('result').innerText = message;
+                }
+            } else {
+                x = c / b;
+                message = 'Phuơng trình có nghiệm là ' + x;
+                document.getElementById('result').innerText = message;
+            }
+        } else {
+            delta = b * b - 4 * a * c;
+            if (delta >= 0) {
+                x1 = (-b - Math.sqrt(delta)) / (2 * a);
+                x2 = (-b + Math.sqrt(delta)) / (2 * a);
+                message = 'Phuơng trình có nghiệm 2 là ' + x1 + ' và ' + x2;
+                document.getElementById('result').innerText = message;
+            } else {
+                message = 'Phương trình vô nghiệm';
+                document.getElementById('result').innerText = message;
+            }
+        }
+    }
+</script>
+</body>
+</html>
